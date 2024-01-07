@@ -27,6 +27,11 @@ export class PagesController {
     return await this.pagesService.find(parentId);
   }
 
+  @Get('/recent')
+  async findRecentlyCreated() {
+    return await this.pagesService.findRecentlyCreated();
+  }
+
   @Post()
   async createPage(@Body() createPageDto: CreatePageDto) {
     return await this.pagesService.create(createPageDto);

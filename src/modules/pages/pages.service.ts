@@ -14,6 +14,10 @@ export class PagesService {
     return pages;
   }
 
+  async findRecentlyCreated() {
+    return await this.pageModel.find().sort({ createdAt: 'desc' }).limit(10);
+  }
+
   async create(createPageDto: CreatePageDto): Promise<Page> {
     const createdPage = new this.pageModel({
       title: createPageDto.title,
